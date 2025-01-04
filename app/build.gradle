@@ -1,0 +1,33 @@
+apply plugin: 'com.android.application'
+
+android {
+    namespace 'com.orangegangsters.github.swiperefreshlayout'
+    compileSdk 34
+    dataBinding {
+        enabled = true
+    }
+
+    defaultConfig {
+        applicationId "com.orangegangsters.github.swiperefreshlayout"
+        minSdkVersion 14
+        targetSdkVersion 34
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+
+    implementation project(':lib')
+
+    //Robotium (tests)
+    androidTestImplementation 'com.jayway.android.robotium:robotium-solo:5.5.4'
+}
